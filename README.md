@@ -8,4 +8,4 @@
 * **Fecha:** Octubre - 2026
 
 ## Estado del Proyecto
-Estado: En desarrollo
+Estado: En desarrollo (Versión Rama A)
