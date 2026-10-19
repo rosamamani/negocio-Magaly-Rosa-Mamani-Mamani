@@ -8,4 +8,6 @@
 * **Fecha:** Octubre - 2026
 
 ## Estado del Proyecto
-Estado: Proyecto Completado (Versión Rama B)
+Se modificó la misma línea del README en dos ramas paralelas a partir del mismo commit base.
+Al fusionar la primera rama y tratar de integrar la segunda, Git detectó una colisión de contenido y bloqueó el avance automático.
+El conflicto se resolvió manualmente editando el archivo para conservar la versión definitiva y eliminando los marcadores.
