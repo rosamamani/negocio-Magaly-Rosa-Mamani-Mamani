@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Buscador PokéAPI - Programación Web III</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    body {
+      background-color: #f4f6f9;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      margin: 0;
+      padding: 20px;
+    }
+    .container {
+      background: #ffffff;
+      padding: 30px;
+      border-radius: 16px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+      width: 100%;
+      max-width: 420px;
+      text-align: center;
+    }
+    h1 {
+      color: #e3350d;
+      margin-top: 0;
+      font-size: 1.8rem;
+    }
+    .search-box {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+    input {
+      flex: 1;
+      padding: 10px 14px;
+      border: 2px solid #dcdcdc;
+      border-radius: 8px;
+      font-size: 1rem;
+      outline: none;
+    }
+    input:focus {
+      border-color: #e3350d;
+    }
+    button {
+      background-color: #e3350d;
+      color: white;
+      border: none;
+      padding: 10px 18px;
+      border-radius: 8px;
+      font-size: 1rem;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    button:hover {
+      background-color: #b82909;
+    }
+    .loading {
+      color: #555;
+      font-weight: bold;
+      font-size: 1.1rem;
+      margin: 15px 0;
+    }
+    .error {
+      background-color: #ffe5e5;
+      color: #c62828;
+      padding: 12px;
+      border-radius: 8px;
+      font-weight: 600;
+      margin-top: 15px;
+    }
+    .card {
+      background: #fafafa;
+      border: 1px solid #eee;
+      border-radius: 12px;
+      padding: 20px;
+      margin-top: 15px;
+    }
+    .card img {
+      width: 150px;
+      height: 150px;
+      object-fit: contain;
+    }
+    .pokemon-name {
+      text-transform: capitalize;
+      font-size: 1.5rem;
+      margin: 10px 0;
+      color: #222;
+    }
+    .info-item {
+      margin: 8px 0;
+      font-size: 1rem;
+      color: #444;
+    }
+    .badge {
+      display: inline-block;
+      background-color: #30a7d7;
+      color: white;
+      padding: 4px 10px;
+      border-radius: 12px;
+      margin: 0 4px;
+      font-size: 0.9rem;
+      text-transform: capitalize;
+    }
+    .hidden {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>PokéAPI Buscador</h1>
+    <div class="search-box">
+      <input type="text" id="pokemonInput" placeholder="Ej: pikachu, charizard..." />
+      <button id="btnBuscar">Buscar</button>
+    </div>
+
+    <div id="estadoMensaje"></div>
+    <div id="resultadoPokemon" class="card hidden"></div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
