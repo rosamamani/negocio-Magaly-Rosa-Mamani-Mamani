@@ -20,3 +20,21 @@ SELECT pe.id AS pedido_id, cl.nombre AS cliente, pe.fecha, pe.estado
 FROM pedidos pe
 INNER JOIN clientes cl ON pe.cliente_id = cl.id
 WHERE cl.id = 1;
+-- 5. Total en dinero de cada pedido (SUM, GROUP BY).
+SELECT pe.id AS pedido_id, pe.fecha, SUM(dp.cantidad * dp.precio_unitario) AS total_pedido
+FROM pedidos pe
+INNER JOIN detalle_pedido dp ON pe.id = dp.pedido_id
+GROUP BY pe.id, pe.fecha
+ORDER BY pe.id ASC;
+
+-- 6. Clientes con mas de 2 pedidos (GROUP BY, HAVING).
+SELECT cl.id, cl.nombre AS cliente, cl.email, COUNT(pe.id) AS cantidad_pedidos
+FROM clientes cl
+INNER JOIN pedidos pe ON cl.id = pe.cliente_id
+GROUP BY cl.id, cl.nombre, cl.email
+HAVING COUNT(pe.id) > 2;
+
+-- 7. Eliminar un cliente sin pedidos (DELETE).
+DELETE FROM clientes
+WHERE id = 6
+  AND id NOT IN (SELECT DISTINCT cliente_id FROM pedidos);
